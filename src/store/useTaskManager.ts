@@ -7,8 +7,8 @@ type Task = {
 
 type TaskManagerState = {
   tasks: Task[];
-  searchQuery: string;
-  setSearchQuery: (query: string) => void;
+  searchTask: string;
+  setSearchTask: (query: string) => void;
   addTask: (task: Task) => void;
   updateTask: (taskId: number, updatedTask: Partial<Task>) => void;
   deleteTask: (taskId: number) => void;
@@ -16,8 +16,8 @@ type TaskManagerState = {
 
 const useTaskManager = create<TaskManagerState>((set: SetState<TaskManagerState>) => ({
   tasks: [],
-  searchQuery: "",
-  setSearchQuery: (query: string) => set(() => ({ searchQuery: query })),
+  searchTask: "",
+  setSearchTask: (query: string) => set(() => ({ searchTask: query })),
   addTask: (task: Task) =>
     set((state: TaskManagerState) => ({ tasks: [...state.tasks, task] })),
   updateTask: (taskId: number, updatedTask: Partial<Task>) =>
